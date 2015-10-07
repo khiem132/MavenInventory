@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2015 3:47:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.model.Supply" table="SUPPLY" schema="dbo" catalog="inventory" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="supplyName" type="serializable">
+            <column name="Supply_Name" not-null="true" />
+        </property>
+        <property name="address" type="serializable">
+            <column name="Address" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" length="15" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="30" />
+        </property>
+        <set name="orders" table="ORDER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SupplyID" not-null="true" />
+            </key>
+            <one-to-many class="com.model.Order" />
+        </set>
+    </class>
+</hibernate-mapping>

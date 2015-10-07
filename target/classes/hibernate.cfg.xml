@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=inventory</property>
+    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.connection.password">123456</property>
+    <mapping resource="com/model/Billdetail.hbm.xml"/>
+    <mapping resource="com/model/Bill.hbm.xml"/>
+    <mapping resource="com/model/Roles.hbm.xml"/>
+    <mapping resource="com/model/Order.hbm.xml"/>
+    <mapping resource="com/model/Product.hbm.xml"/>
+    <mapping resource="com/model/Account.hbm.xml"/>
+    <mapping resource="com/model/Customer.hbm.xml"/>
+    <mapping resource="com/model/Orderdetail.hbm.xml"/>
+    <mapping resource="com/model/Supply.hbm.xml"/>
+    <mapping resource="com/model/Categories.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

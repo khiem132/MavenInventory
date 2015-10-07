@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="inventory" match-schema="dbo"/>
+  <table-filter match-name="SUPPLY"/>
+  <table-filter match-name="PRODUCT"/>
+  <table-filter match-name="BILLdetail"/>
+  <table-filter match-name="CUSTOMER"/>
+  <table-filter match-name="ACCOUNT"/>
+  <table-filter match-name="ORDER"/>
+  <table-filter match-name="CATEGORIES"/>
+  <table-filter match-name="BILL"/>
+  <table-filter match-name="ORDERdetail"/>
+  <table-filter match-name="ROLES"/>
+</hibernate-reverse-engineering>
