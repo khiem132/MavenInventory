@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2015 3:47:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.model.Bill" table="BILL" schema="dbo" catalog="inventory" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="account" class="com.model.Account" fetch="select">
+            <column name="AccountID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="customer" class="com.model.Customer" fetch="select">
+            <column name="CustomerID" />
+        </many-to-one>
+        <property name="date" type="timestamp">
+            <column name="Date" length="23" not-null="true" />
+        </property>
+        <property name="discount" type="java.lang.Double">
+            <column name="Discount" precision="53" scale="0" />
+        </property>
+        <property name="payment" type="big_decimal">
+            <column name="Payment" scale="4" />
+        </property>
+        <property name="total" type="big_decimal">
+            <column name="Total" scale="4" />
+        </property>
+        <property name="billStatus" type="java.lang.Integer">
+            <column name="BillStatus" />
+        </property>
+        <set name="billdetails" table="BILLdetail" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BillID" not-null="true" />
+            </key>
+            <one-to-many class="com.model.Billdetail" />
+        </set>
+    </class>
+</hibernate-mapping>

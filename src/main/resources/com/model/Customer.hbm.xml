@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 6, 2015 3:47:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.model.Customer" table="CUSTOMER" schema="dbo" catalog="inventory" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="customer" type="serializable">
+            <column name="Customer" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" length="13" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="30" />
+        </property>
+        <property name="address" type="serializable">
+            <column name="Address" />
+        </property>
+        <set name="bills" table="BILL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CustomerID" />
+            </key>
+            <one-to-many class="com.model.Bill" />
+        </set>
+    </class>
+</hibernate-mapping>
